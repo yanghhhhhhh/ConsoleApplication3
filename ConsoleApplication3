@@ -1,0 +1,41 @@
+// ConsoleApplication3.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+class A
+
+{
+
+	int i; // single line comment
+
+	int j; /* multiple
+
+	line
+
+	comment
+
+	*/
+
+	int k; ///< Multi-line Doxygen comment, as per: https://www.doxygen.nl/manual/docblocks.html#memberdoc )
+
+	///< This second line should be included in the doc comment.
+
+	int x; /**!< Multi-line Doxygen comment, as per: https://www.doxygen.nl/manual/docblocks.html#memberdoc )
+
+	This second line should be included in the doc comment. */
+
+	void foo()
+
+	{
+
+		i = 1; // hover over 'i' here. Shows the doc comment correctly.
+
+		j = 1; // hover over 'j' here. Does not show the doc comment. Maybe this should show entire doc comment?
+
+		k = 1; // hover over 'k' here. Note the second line is not included. Also, an XML parsing error which should not occur.
+
+		x = 1; // hover over 'x' here. Note the second line is not included. The comment is also oddly truncated.
+
+	}
+
+};
