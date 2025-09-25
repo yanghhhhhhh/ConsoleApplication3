@@ -1,0 +1,14 @@
+
+[
+  {
+    "name": "x86_64 Linux GCC 9 Toolchain",
+    "compilers": {
+      "C": "/opt/toolchain/bin/x86_64-linux-gnu-gcc",
+      "CXX": "/opt/toolchain/bin/x86_64-linux-gnu-g++"
+    },
+    "environmentVariables": {
+      "PATH": "/opt/toolchain/bin:${env:PATH}"
+    },
+    "toolchainFile": "${workspaceFolder}/toolchain-x86_64.cmake"
+  }
+]
