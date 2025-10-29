@@ -1,0 +1,35 @@
+min_version = "2024.9.5"
+
+[env]
+PROJECT_NAME = "{{ config_root | basename }}"
+BUILD_DIR    = "{{ config_root }}/build"
+
+[tools]
+cmake = "latest"     # 安装最新版本的 CMake
+make  = "latest"     # 同时安装最新版本的 make
+
+[tasks.configure]
+description = "Configure the project"
+run = "mkdir -p $BUILD_DIR && cd $BUILD_DIR && cmake .."
+
+[tasks.build]
+description = "Build the project"
+alias = "b"
+run = "cd $BUILD_DIR && make"
+
+[tasks.clean]
+description = "Clean the build directory"
+alias = "c"
+run = "rm -rf $BUILD_DIR"
+
+[tasks.run]
+description = "Run the application"
+alias = "r"
+run = "$BUILD_DIR/bin/$PROJECT_NAME"
+
+[tasks.info]
+description = "Print project information"
+run = '''
+  echo "Project: $PROJECT_NAME"
+  echo "Build Directory: $BUILD_DIR"
+'''
